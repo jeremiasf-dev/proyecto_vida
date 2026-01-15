@@ -1,0 +1,85 @@
+/* Regla general de orden en CSS 
+> Siempre primero cómo se comporta la caja (display, flex) 
+> Después qué tamaño tiene y cómo se separa internamente 
+    (width, height, padding, margin)
+> Luego bordes y bordes redondeados 
+> Luego color y fondo 
+> Por último, contenido y tipografía 
+> Otros efectos: hover, transitions, etc. */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+
+    background: linear-gradient(to bottom, #111 0%, #333 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Recomendación de mi amigo Carlos, se usa la primera que esté disponible en el orden en el cual están */
+    color: whitesmoke;
+    line-height: 1.4;
+}
+
+#app {
+    display: flex;
+    flex-direction: row; /* nav a la izquierda, main a la derecha */
+    height: 80vh;
+    width: 90vw;
+
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    border-radius: 12px;
+    overflow: hidden; /* evita que los bordes se rompan */
+}
+
+nav {
+    flex: 0 0 200px; /* ancho fijo de 200px */
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+
+    background-color: #111111;
+    border-right: 2px solid rgba(224,224,224,0.7);
+}
+
+main {
+    flex: 1; /* ocupa todo el espacio restante */
+    padding: 1rem;
+
+    background-color: #1a1a1a;
+    border-left: 2px solid rgba(255,255,255,0.2);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0.8rem 0;
+}
+
+nav ul li a,
+nav ul li a:visited {
+    display: block;
+    padding: 0.6rem 0;
+    color: white;
+    background-color: #222;
+    text-decoration: none;
+
+    border: 2px solid crimson;
+    border-radius: 8px;
+    text-align: center;
+
+    transition: all 0.3s ease; /* Transición temporal a los efectos de a:hover */
+}
+
+nav ul li a:hover {
+    background-color: rgba(200, 0, 0, 0.2);
+    color: crimson;
+    transform: scale(1.05); /* Agranda la caja/botón sutilmente */
+}
+
+main h1, main p {
+    margin: 0 0 1rem 0;
+}
+
